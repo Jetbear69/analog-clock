@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle, #0b456b, #021c37);
+}
+
+.clock {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #05263c, #000d1a);
+}
+
+.clock::before {
+    content: "";
+    position: absolute;
+    width: 525px;
+    height: 525px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #00d9ff, #ee00ff);
+    box-sizing: 0 0 15px 15px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+.number {
+    transform: rotate(calc(30deg * var(--n)));
+    position: absolute;
+    text-align: center;
+    inset: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #00d9ff;
+    text-shadow: 0 0 12px #ee00ff;
+}
+
+.number b {
+    transform: rotate(calc(-30deg * var(--n)));
+    display: inline-block;
+}
+
+.name {
+    color: #00d9ff;
+    position: absolute;
+    top: 25%;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0 0 12px #ee00ff;
+}
+
+.center-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ee00ff;
+    border: 3px solid #00d9ff;
+    border-radius: 50%;
+}
+
+.hand-hour,
+.hand-minute,
+.hand-second {
+    --rotate: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+    transform-origin: bottom;
+    border-radius: 30px 30px 0 0;
+}
+
+.hand-hour {
+    width: 8px;
+    height: 130px;
+    background: linear-gradient(#00d9ff, #ee00ff);
+}
+
+.hand-minute {
+    width: 6px;
+    height: 190px;
+    background: linear-gradient(to top, #00d9ff, #ee00ff);
+}
+
+.hand-second {
+    width: 5px;
+    height: 210px;
+    background: linear-gradient(to top, #00d9ff, #ee00ff);
+}
